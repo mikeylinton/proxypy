@@ -64,7 +64,7 @@ def getProxy (file, localproxy):
         print (data["error"])
         exit()
 
-import urllib, json, requests
+import urllib.requests, json 
 print("Creating proxychains.conf")
 file = open("proxychains.conf", 'w')
 settings(file)

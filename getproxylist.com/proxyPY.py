@@ -1,3 +1,5 @@
+import urllib.request, json 
+
 def settings (file):
     # proxychains.conf  VER 4
     #
@@ -119,13 +121,13 @@ def getProxy (file):
         print (data["error"])
         exit()
 
-import urllib.request, json 
-print("Creating proxychains.conf")
-file = open("proxychains.conf", 'w')
-settings(file)
-print("\nAdding proxies ...")
-max_chain_len=10
-for x in range(0, max_chain_len):
-    getProxy(file)
-file.write("\nsocks4 127.0.0.1 9050")
-file.close()
+if __name__ == "__main__":
+    print("Creating proxychains.conf")
+    file = open("proxychains.conf", 'w')
+    settings(file)
+    print("\nAdding proxies ...")
+    max_chain_len=10
+    for x in range(0, max_chain_len):
+        getProxy(file)
+    file.write("\nsocks4 127.0.0.1 9050")
+    file.close()

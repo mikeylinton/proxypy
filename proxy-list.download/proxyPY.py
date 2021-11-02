@@ -1,3 +1,5 @@
+import requests, json 
+
 def settings (file):
     # proxychains.conf  VER 4
     #
@@ -121,14 +123,14 @@ def getProxies (file,protocol):
         except:
             continue
 
-import requests, json 
-print("Creating proxychains.conf")
-file = open("proxychains.conf", 'w')
-settings(file)
-print("\nAdding proxies ...")
-getProxies(file,"socks5")
-# getProxies(file,"socks4")
-# getProxies(file,"https")
-# getProxies(file,"http")
-# file.write("\nsocks4 127.0.0.1 9050")
-file.close()
+if __name__ == "__main__":
+    print("Creating proxychains.conf")
+    file = open("proxychains.conf", 'w')
+    settings(file)
+    print("\nAdding proxies ...")
+    getProxies(file,"socks5")
+    # getProxies(file,"socks4")
+    # getProxies(file,"https")
+    # getProxies(file,"http")
+    # file.write("\nsocks4 127.0.0.1 9050")
+    file.close()
